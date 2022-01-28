@@ -28,16 +28,10 @@ class NewsScraper:
     def get_content(cls, body_article=None, attr=None):
         try:
             content = ''
-            
             list_paragraph = []
             full_paragraph = body_article[0].find_all('p')
-            for p in range(0, len(full_paragraph)):
-                paragraph = full_paragraph[p].get_text()
-                list_paragraph.append(paragraph)
-                content = " ".join(list_paragraph)
-
-            return content    
-
+            content = ''.join([p.get_text() for p in full_paragraph])
+            return content
         except:
             return 'contain image or video content'
 

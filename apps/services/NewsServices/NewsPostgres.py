@@ -9,7 +9,7 @@ class NewsPostgres:
     @classmethod
     def check_news(cls, input):
         try:
-            news = News.where('link', '=', input).first_or_fail()
+            news = News.where('link', '=', input).first_or_fail().serialize()
             return news
 
         except ModelNotFound as e:
@@ -19,7 +19,7 @@ class NewsPostgres:
     @classmethod
     def save_news(cls, input):
         try:
-            news = News.where('title', '=', input['title']).first_or_fail()
+            news = News.where('title', '=', input['title']).first_or_fail().serialize()
             return news
 
         except ModelNotFound as e:

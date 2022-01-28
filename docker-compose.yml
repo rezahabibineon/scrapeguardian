@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
     depends_on:
-      - database
+      - database 
   
   database:
     image: postgres

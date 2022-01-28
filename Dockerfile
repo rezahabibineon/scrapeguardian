@@ -1,6 +1,6 @@
 FROM python:3.8-slim-buster
 
-WOKDIR /scrapeguardian
+WORKDIR /scrapeguardian
 
 RUN apt-get update && apt-get clean
 
